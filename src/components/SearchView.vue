@@ -54,7 +54,7 @@
             <img src="../assets/popular.svg" alt=""><span>排序：熱門度</span>
           </button>
         </div>
-        <a href="#/ViewDetails" class="viewIntroduce" v-for="(hotViewImgUrlItem, index) in hotViewImgUrl[0]" :key="hotViewImgUrlItem.key" @click="test(index)">
+        <a href="#/ViewDetails" class="viewIntroduce" v-for="(hotViewImgUrlItem, index) in hotViewImgUrl[0]" :key="hotViewImgUrlItem.key" @click="viewName(index)">
           <div class="viewImg"><img :src="hotViewImgUrlItem.url" alt=""></div>
           <div class="viewDetail">
             <div class="viewName">
@@ -104,7 +104,7 @@ export default {
   },
   data () {
     return {
-      tester: '',
+      viewNameMsg: '',
       msg: [
         {text: '首頁', class: '', key: 'Breadcrumbs1'},
         {text: '>', class: '', key: 'Breadcrumbs2'},
@@ -123,8 +123,9 @@ export default {
     }
   },
   methods: {
-    test (index) {
+    viewName (index) {
       console.log(JSON.stringify(this.hotViewImgUrl[0][index].name))
+      this.viewNameMsg = JSON.stringify(this.hotViewImgUrl[0][index].name)
     }
   },
   beforeMount () {
